@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <title>Login Form</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-    <?php
-    $x=5;
-    $y=10;
-    function myTest(){
-        global $x,$y;
-        $y=$x+$y;
-    }
-    myTest();
-    echo $y;
-   ?>
+  <form method='POST'>
+    <label for="username">Username:</label><br/>
+    <input type="text" id="username" name="username" placeholder="Enter your username" /><br /><br />
+    <input type="submit" value="Submit" />
+  </form>
+  <?php
+  if ($_SERVER["REQUEST METHOD"] == "POST" && isset($_POST['username'])) {
+    $username = $_POST['username'];
+    echo "<h3> Hello $username </h3>";
+}
+?>
 </body>
 </html>
